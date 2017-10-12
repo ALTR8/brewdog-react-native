@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
+
+//----native elements
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+
+//----components
 import Beers from './components/Beers';
+import Nav from './components/Nav';
 
 export default class App extends Component {
 
     render() {
         return (
             <View style={styles.container}>
+                <Nav />
                 <Text>BrewDog Beers on React Native</Text>
-                <Text>Hello World</Text>
-                <Text style={styles.body}>because I sometimes know something and am learning all the things.</Text>
                 <Image style={{width: 50, height: 50}} source={{uri: "https://images-na.ssl-images-amazon.com/images/I/91sYtn6tfWL._SL1500_.jpg"}} />
                 <Beers />
             </View>
@@ -19,7 +23,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
+    paddingTop: 35,
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',

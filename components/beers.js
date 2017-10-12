@@ -1,9 +1,18 @@
 'use strict';
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+
+//----native elements
+import { StyleSheet, Text, View, ScrollView, Button, Alert } from 'react-native';
 import { List, ListItem } from "react-native-elements";
+
+//----components
+import Beer from './Beer';
+
+//----??
 let RCTLog = require('RCTLog');
+
+//----API call
 import axios from 'axios';
 
 export default class Beers extends Component {
@@ -11,9 +20,13 @@ export default class Beers extends Component {
         super()
 
         this.state = {
-            beers: []
+            beers: [],
         };
     };
+
+    onPress() {
+        Alert.alert('Did a thing')
+    }
 
     componentWillMount(){
         this.makeBeerRequest();
@@ -30,22 +43,32 @@ export default class Beers extends Component {
     render() {
         const { beers } = this.state;
         let beer = [];
+        let name;
+        let abv;
+        let key;
+        let description;
 
         for (let i=0; i< beers.length; i++) {
-            let name = beers[i].name
-            let key = beers[i].id
-            let abv = beers[i].abv
-            beer.push(<Text style={styles.beers}>{name}</Text>)
-            // beer.push(<Text>{key}. {name}</Text>)
-            // beer.push(<Text>{abv}% alcohol by volume</Text>)
+            name = beers[i].name
+            key = beers[i].id
+            abv = beers[i].abv
+            description = beers[i].description
+            beer.push(<Button
+                key={key}
+                style={styles.beers}
+                onPress={this.onPress}
+                title={name}
+            />)
+        };
 
-        }
+        // let beerIndex = beer.indexOf()
         return(
             <View style={styles.container}>
                 <Text>Beer List Rendering From Beers Component:</Text>
                 <ScrollView>
-                {beer}
+                    {beer}
                 </ScrollView>
+                <Beer beers={beers} name={name} abv={abv} description={description} key={key}/>
             </View>
 
         );
@@ -65,7 +88,7 @@ const styles = StyleSheet.create({
     height: 30,
     overflow: 'scroll',
     marginTop: 2,
-    color: 'magenta',
+    color: 'purple',
     fontSize: 10,
     lineHeight: 10,
   },
