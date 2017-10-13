@@ -1,9 +1,17 @@
-'use strict';
-
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+
+//----native elements
+import { StyleSheet, Text, View, ScrollView, Button, Alert, Modal } from 'react-native';
 import { List, ListItem } from "react-native-elements";
+
+//----??
 let RCTLog = require('RCTLog');
+
+//---components
+import Beer from './Beer';
+import BeerModal from './BeerModal';
+
+//----API call
 import axios from 'axios';
 
 export default class Beers extends Component {
@@ -11,8 +19,22 @@ export default class Beers extends Component {
         super()
 
         this.state = {
-            beers: []
+            beers: [],
+            modalVisible: false,
+            currentBeer: {
+                id: 0,
+                name: "",
+                abv: 0,
+                description: ""
+            },
         };
+    };
+
+    toggleModal(modalVisible, currentBeer) {
+        this.setState({
+            modalVisible,
+            currentBeer
+        });
     };
 
     componentWillMount(){
@@ -29,22 +51,21 @@ export default class Beers extends Component {
 
     render() {
         const { beers } = this.state;
-        let beer = [];
 
-        for (let i=0; i< beers.length; i++) {
-            let name = beers[i].name
-            let key = beers[i].id
-            let abv = beers[i].abv
-            beer.push(<Text style={styles.beers}>{name}</Text>)
-            // beer.push(<Text>{key}. {name}</Text>)
-            // beer.push(<Text>{abv}% alcohol by volume</Text>)
-
-        }
         return(
             <View style={styles.container}>
                 <Text>Beer List Rendering From Beers Component:</Text>
+                    <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
+                        <BeerModal beer={this.state.currentBeer}/>
+                        <Button title="close" onPress={() => {this.toggleModal(false)}} />
+                    </Modal>
                 <ScrollView>
-                {beer}
+                    {beers.map(beer => <Button
+                        onPress={() => {this.toggleModal(true, beer)}}
+                        key={beer.id}
+                        style={styles.beers}
+                        title={beer.name} />)
+                    }
                 </ScrollView>
             </View>
 

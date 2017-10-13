@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
 import React, { Component } from 'react';
@@ -22,17 +21,6 @@ export default function createTabBarItemIOSComponent(
       iconSize: 30,
     };
 
-    componentWillMount() {
-      this.updateIconSources(this.props);
-    }
-
-    componentWillReceiveProps(nextProps) {
-      const keys = Object.keys(TabBarItemIOS.propTypes);
-      if (!isEqual(pick(nextProps, keys), pick(this.props, keys))) {
-        this.updateIconSources(nextProps);
-      }
-    }
-
     updateIconSources(props) {
       if (props.iconName) {
         getImageSource(
@@ -49,6 +37,17 @@ export default function createTabBarItemIOSComponent(
           props.iconSize,
           selectedIconColor
         ).then(selectedIcon => this.setState({ selectedIcon }));
+      }
+    }
+
+    componentWillMount() {
+      this.updateIconSources(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const keys = Object.keys(TabBarItemIOS.propTypes);
+      if (!isEqual(pick(nextProps, keys), pick(this.props, keys))) {
+        this.updateIconSources(nextProps);
       }
     }
 
