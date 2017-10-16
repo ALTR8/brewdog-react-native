@@ -8,7 +8,6 @@ import { List, ListItem } from "react-native-elements";
 let RCTLog = require('RCTLog');
 
 //---components
-import Beer from './Beer';
 import BeerModal from './BeerModal';
 
 //----API call
@@ -54,14 +53,15 @@ export default class Beers extends Component {
 
         return(
             <View style={styles.container}>
-                <Text>Beer List Rendering From Beers Component:</Text>
+                <Text>Press a beer for more information:</Text>
                     <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
-                        <BeerModal beer={this.state.currentBeer}/>
+                        <BeerModal style={styles.beer} beer={this.state.currentBeer}/>
                         <Button title="close" onPress={() => {this.toggleModal(false)}} />
                     </Modal>
                 <ScrollView>
                     {beers.map(beer => <Button
                         onPress={() => {this.toggleModal(true, beer)}}
+                        color="white"
                         key={beer.id}
                         style={styles.beers}
                         title={beer.name} />)
@@ -75,19 +75,17 @@ export default class Beers extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+      flex: 1,
+      backgroundColor: '#817753',
+      alignItems: 'center',
+      justifyContent: 'center',
   },
 
   beers: {
-    paddingTop: 8,
     height: 30,
     overflow: 'scroll',
     marginTop: 2,
-    color: 'magenta',
     fontSize: 10,
     lineHeight: 10,
-  },
+},
 });

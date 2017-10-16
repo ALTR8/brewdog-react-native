@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, resizeMode } from 'react-native';
 
 //----components
 import Beers from './components/Beers';
-import Beer from './components/Beer';
 
 
 export default class App extends Component {
@@ -13,9 +12,8 @@ export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
-               <Text>BrewDog Beers on React Native</Text>
-               <Image style={{width: 50, height: 50}} source={{uri: "https://images-na.ssl-images-amazon.com/images/I/91sYtn6tfWL._SL1500_.jpg"}} />
-               <Beers />
+                <Image style={styles.image} resizeMode="center" source={ require('./images/logo.png')} />
+                <Beers />
            </View>
         )
     }
@@ -23,19 +21,17 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
+    paddingTop: 30,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#817753',
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  title: {
-    color: 'magenta',
-    fontSize: 20,
-  },
-
+  image: {
+    width: 100,
+    height: 200,
+},
   body: {
-      fontSize: 10,
+      fontSize: 15,
   },
 });
