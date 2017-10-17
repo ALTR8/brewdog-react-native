@@ -56,7 +56,7 @@ export default class Beers extends Component {
                 <Text>Press a beer for more information:</Text>
                     <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
                         <BeerModal style={styles.beer} beer={this.state.currentBeer}/>
-                        <Button title="close" onPress={() => {this.toggleModal(false)}} />
+                        <Button style={styles.button} title="close" onPress={() => {this.toggleModal(false)}} />
                     </Modal>
                 <ScrollView>
                     {beers.map(beer => <Button
@@ -74,18 +74,20 @@ export default class Beers extends Component {
 };
 
 const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      backgroundColor: '#817753',
-      alignItems: 'center',
-      justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#817753',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    button: {
 
-  beers: {
-    height: 30,
-    overflow: 'scroll',
-    marginTop: 2,
-    fontSize: 10,
-    lineHeight: 10,
-},
+    },
+    beers: {
+        height: 30,
+        overflow: 'scroll',
+        marginTop: 2,
+        fontSize: 10,
+        lineHeight: 10,
+    },
 });
