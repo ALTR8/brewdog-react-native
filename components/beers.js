@@ -65,7 +65,7 @@ export default class Beers extends Component {
                     </Modal>
                     <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
                         <InfoModal />
-                        <Button title="close" color="black" onPress={() => {this.toggleModal(false)}} />
+                        <Button title="close" color="black" onPress={() => {this.toggleInfo(false)}} />
                         <Text></Text>
                     </Modal>
                 <ScrollView>
