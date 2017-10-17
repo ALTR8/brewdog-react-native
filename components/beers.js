@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, Text, View, ScrollView, Button, Alert, Modal } from 'react-native';
-import { List, ListItem } from "react-native-elements";
-
-//----??
-let RCTLog = require('RCTLog');
+import { StyleSheet, Text, View, ScrollView, Button, Modal } from 'react-native';
 
 //---components
 import BeerModal from './BeerModal';
+import InfoModal from './InfoModal';
 
 //----API call
 import axios from 'axios';
@@ -20,6 +17,7 @@ export default class Beers extends Component {
         this.state = {
             beers: [],
             modalVisible: false,
+            infoVisible: false,
             currentBeer: {
                 id: 0,
                 name: "",
@@ -32,7 +30,13 @@ export default class Beers extends Component {
     toggleModal(modalVisible, currentBeer) {
         this.setState({
             modalVisible,
-            currentBeer
+            currentBeer,
+        });
+    };
+
+    toggleInfo(infoVisible) {
+        this.setState({
+            infoVisible,
         });
     };
 
@@ -54,9 +58,15 @@ export default class Beers extends Component {
         return(
             <View style={styles.container}>
                 <Text>Press a beer for more information:</Text>
-                    <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
-                        <BeerModal style={styles.beer} beer={this.state.currentBeer}/>
-                        <Button style={styles.button} title="close" onPress={() => {this.toggleModal(false)}} />
+                    <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
+                        <BeerModal beer={this.state.currentBeer}/>
+                        <Button title="close" color="black" onPress={() => {this.toggleModal(false)}} />
+                        <Text></Text>
+                    </Modal>
+                    <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
+                        <InfoModal />
+                        <Button title="close" color="black" onPress={() => {this.toggleModal(false)}} />
+                        <Text></Text>
                     </Modal>
                 <ScrollView>
                     {beers.map(beer => <Button
@@ -67,6 +77,13 @@ export default class Beers extends Component {
                         title={beer.name} />)
                     }
                 </ScrollView>
+                <Button
+                    onPress={() => {this.toggleInfo(true)}}
+                    color="#663333"
+                    backgroundColor="white"
+                    style={styles.beers}
+                    title='Learn More About Brewdog'
+                />
             </View>
 
         );
@@ -79,9 +96,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#817753',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    button: {
-
+        paddingBottom: 15,
     },
     beers: {
         height: 30,

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, Text, View, FlatList, Image, resizeMode } from 'react-native';
+import { StyleSheet, View, Image, resizeMode } from 'react-native';
 
 //----components
 import Beers from './components/Beers';
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#817753',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 10,
   },
   image: {
     width: 100,

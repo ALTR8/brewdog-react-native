@@ -2,13 +2,9 @@ import React, {Component} from 'react';
 
 //----native elements
 import { StyleSheet, Text, View, Button, Modal, Image, resizeMode, ScrollView } from 'react-native';
-import Dimensions from 'Dimensions';
 
 //---components
 import Beers from './Beers';
-
-Dimensions.get('window').height;
-const elWidth = Dimensions.get('window').width;
 
 export default class BeerModal extends Component {
     constructor(props) {
@@ -44,7 +40,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: 'visible',
     },
     image: {
         position: 'absolute',
@@ -55,18 +50,19 @@ const styles = StyleSheet.create({
         zIndex: 5000,
     },
     name: {
-        paddingTop: 100,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        paddingTop: 60,
         fontSize: 30,
     },
     details: {
         fontSize: 16,
+        lineHeight: 20,
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 5,
     },
     content: {
-        width: elWidth,
         height: 150,
-        paddingTop: 25,
     },
 });
