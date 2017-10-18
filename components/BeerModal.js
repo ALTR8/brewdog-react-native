@@ -27,7 +27,7 @@ export default class BeerModal extends Component {
                     source={ require('../images/brewery.png')}
                     resizeMode="contain"
                 />
-                <View >
+                <View>
                 <View style={styles.content1}><Text style={styles.name}>{this.props.beer.name}</Text></View>
                     <ScrollView style={styles.content}>
                             <Text style={styles.details}>{this.props.beer.abv}% ABV</Text>

@@ -40,14 +40,14 @@ export default class InfoModal extends Component {
                     resizeMode="center"
                 />
                 <View style={styles.links}>
-                <Text style={styles.name}>Useful Links</Text>
+                    <Text style={styles.name}>Useful Links</Text>
                     <TouchableHighlight onPress={() => {this.handlePress(2)}}>
                         <Text style={styles.link}>{'\n'}Brewery HQ</Text>
                     </TouchableHighlight>
                     <Text>Ellon, Aberdeenshire{'\n'}</Text>
                     <TouchableHighlight onPress={() => {this.handlePress(3)}}>
                         <Text style={styles.link}>US Brewery</Text>
-                </TouchableHighlight>
+                    </TouchableHighlight>
                     <Text >Columbus, OH{'\n'}</Text>
                     <TouchableHighlight onPress={() => {this.handlePress(1)}}>
                         <Text style={styles.link}>Brewdog.com</Text>
