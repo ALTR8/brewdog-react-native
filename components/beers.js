@@ -70,18 +70,22 @@ export default class Beers extends Component {
 
         return(
             <View style={styles.container}>
-                <Text>Press a beer for more information:</Text>
+                <Text style={styles.bold}>Press a beer for more information:</Text>
                     <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
+                        <TouchableHighlight onPress={() => {this.toggleModal(false)}}>
+                            <Text style={styles.close}>close</Text>
+                        </TouchableHighlight>
                         <BeerModal beer={this.state.currentBeer}/>
-                        <Button title="close" color="black" onPress={() => {this.toggleModal(false)}} />
                         <Text></Text>
                     </Modal>
                     <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
+                        <TouchableHighlight onPress={() => {this.toggleInfo(false)}}>
+                            <Text style={styles.close}>close</Text>
+                        </TouchableHighlight>
                         <InfoModal />
-                        <Button title="close" color="black" onPress={() => {this.toggleInfo(false)}} />
                         <Text></Text>
                     </Modal>
-                <ScrollView style={styles.scroll}>
+                <ScrollView>
                     {beers.map(beer =>
                         <TouchableHighlight onPress={() => {this.toggleModal(true, beer)}} key={beer.id}>
                             <Text style={styles.beers}>{beer.name}</Text>
@@ -92,7 +96,7 @@ export default class Beers extends Component {
                     onPress={() => {this.toggleInfo(true)}}
                     color="#663333"
                     style={styles.beers}
-                    title='Learn More About Brewdog'
+                    title='Learn More'
                 />
             </View>
         );
@@ -109,15 +113,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingBottom: 0,
     },
-    scroll: {
-        backgroundColor: '#817753',
+    bold: {
+        fontWeight: 'bold',
     },
     beers: {
         backgroundColor: '#817753',
         height: 30,
         overflow: 'scroll',
-        fontSize: 15,
+        fontSize: 18,
         color: 'white',
         textAlign: 'center',
+    },
+    close: {
+        backgroundColor: 'white',
+        paddingTop: 60,
+        paddingLeft: 300,
+        fontSize: 15,
+        fontWeight: 'bold',
     },
 });

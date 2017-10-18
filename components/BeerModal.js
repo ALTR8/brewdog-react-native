@@ -8,11 +8,14 @@ import { StyleSheet,
     Modal,
     Image,
     resizeMode,
-    ScrollView
+    ScrollView,
+    Dimensions,
 } from 'react-native';
 
 //---components
 import Beers from './Beers';
+
+const screenWidth = Dimensions.get('window').width
 
 export default class BeerModal extends Component {
     constructor(props) {
@@ -25,10 +28,10 @@ export default class BeerModal extends Component {
                 <Image
                     style={styles.image}
                     source={ require('../images/brewery.png')}
-                    resizeMode="contain"
+                    resizeMode="cover"
                 />
                 <View>
-                <View style={styles.content1}><Text style={styles.name}>{this.props.beer.name}</Text></View>
+                <View style={styles.content1}><Text style={styles.name}>{this.props.beer.name}{'\n'}</Text></View>
                     <ScrollView style={styles.content}>
                             <Text style={styles.details}>{this.props.beer.abv}% ABV</Text>
                             <Text style={styles.details}>{this.props.beer.ibu} IBUs{"\n"}</Text>
@@ -45,7 +48,7 @@ export default class BeerModal extends Component {
 
 const styles = StyleSheet.create({
     modal: {
-        backgroundColor: '#BA4A73',
+        backgroundColor: 'white',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
@@ -55,13 +58,12 @@ const styles = StyleSheet.create({
         top: 200,
     },
     content1: {
-        padding: 15,
         zIndex: 5000,
     },
     name: {
         textAlign: 'center',
         fontWeight: 'bold',
-        paddingTop: 40,
+        paddingTop: 20,
         fontSize: 30,
     },
     details: {
@@ -70,10 +72,11 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 5,
-        backgroundColor: '#BA4A73',
+        backgroundColor: 'white',
         zIndex: 5000,
     },
     content: {
         height: 150,
+        width: screenWidth,
     },
 });
