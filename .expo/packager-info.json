@@ -1,8 +1,8 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 60551,
+  "expoServerNgrokUrl": "https://n7-uz8.alroth8.brewdog-react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.n7-uz8.alroth8.brewdog-react-native.exp.direct",
+  "ngrokPid": 60565
 }

@@ -63,7 +63,7 @@ export default class InfoModal extends Component {
 
 const styles = StyleSheet.create({
     modal: {
-        backgroundColor: '#BA4A73',
+        backgroundColor: 'white',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',

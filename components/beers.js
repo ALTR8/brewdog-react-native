@@ -72,9 +72,14 @@ export default class Beers extends Component {
             <View style={styles.container}>
                 <Text style={styles.bold}>Press a beer for more information:</Text>
                     <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
-                        <TouchableHighlight onPress={() => {this.toggleModal(false)}}>
-                            <Text style={styles.close}>close</Text>
-                        </TouchableHighlight>
+                            <Text></Text>
+                            <Text></Text>
+                            <Button
+                                style={styles.close}
+                                onPress={() => {this.toggleModal(false)}}
+                                title="close"
+                                color='black'
+                            />
                         <BeerModal beer={this.state.currentBeer}/>
                         <Text></Text>
                     </Modal>
@@ -123,12 +128,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
         textAlign: 'center',
-    },
-    close: {
-        backgroundColor: 'white',
-        paddingTop: 60,
-        paddingLeft: 300,
-        fontSize: 15,
-        fontWeight: 'bold',
     },
 });
