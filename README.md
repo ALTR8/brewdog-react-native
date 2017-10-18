@@ -2,6 +2,8 @@ This project was created with with [Create React Native App](https://github.com/
 
 Created using the BrewDog API, an open source API associated with, but not created or maintained by Brewdog.
 
+Type exp://exp.host/@alroth8/brewdog-beer into the brewdog app to enjoy the hosted Brewdog experience!
+
 ## Prerequisites
 
 - Download the Expo app. (https://expo.io) - this app was created with Create React Native App and has not yet been ejected. It is currently hosted as a standalone app on Expo.
