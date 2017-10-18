@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, Text, View, Button, Modal, Image, resizeMode, ScrollView } from 'react-native';
+import { StyleSheet,
+    Text,
+    View,
+    Button,
+    Modal,
+    Image,
+    resizeMode,
+    ScrollView
+} from 'react-native';
 
 //---components
 import Beers from './Beers';
@@ -13,7 +21,7 @@ export default class BeerModal extends Component {
 
     render() {
         return(
-                <View style={styles.modal}>
+            <View style={styles.modal}>
                 <Image
                     style={styles.image}
                     source={ require('../images/brewery.png')}
@@ -28,11 +36,12 @@ export default class BeerModal extends Component {
                             <Text style={styles.details}>Food Pairings: {this.props.beer.food_pairing[0]}, {this.props.beer.food_pairing[1]}</Text>
                     </ScrollView>
                 </View>
-                </View>
-
+            </View>
         );
     };
 };
+
+//----Style
 
 const styles = StyleSheet.create({
     modal: {

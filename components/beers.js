@@ -96,10 +96,11 @@ export default class Beers extends Component {
                     title='Learn More About Brewdog'
                 />
             </View>
-
         );
     };
 };
+
+//----Style
 
 const styles = StyleSheet.create({
     container: {

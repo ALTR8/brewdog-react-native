@@ -13,9 +13,6 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-//----libraries
-import Hyperlink from 'react-native-hyperlink'
-
 links = [
     'https://www.brewdog.com/welcome',
     'https://www.brewdog.com/brewery/brewery',
@@ -61,6 +58,8 @@ export default class InfoModal extends Component {
         );
     };
 };
+
+//----Style
 
 const styles = StyleSheet.create({
     modal: {

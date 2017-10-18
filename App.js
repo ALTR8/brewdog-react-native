@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, View, Image, resizeMode } from 'react-native';
+import { StyleSheet,
+    View,
+    Image,
+    resizeMode
+} from 'react-native';
 
 //----components
 import Beers from './components/Beers';
@@ -19,20 +23,22 @@ export default class App extends Component {
     }
 }
 
+//----Style
+
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 30,
-    flex: 1,
-    backgroundColor: '#817753',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 10,
-  },
-  image: {
-    width: 100,
-    height: 200,
-},
-  body: {
-      fontSize: 15,
-  },
+    container: {
+        paddingTop: 30,
+        flex: 1,
+        backgroundColor: '#817753',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom: 10,
+    },
+    image: {
+        width: 100,
+        height: 200,
+    },
+    body: {
+        fontSize: 15,
+    },
 });
