@@ -17,7 +17,7 @@ export default class BeerModal extends Component {
                 <Image
                     style={styles.image}
                     source={ require('../images/brewery.png')}
-                    resizeMode="center"
+                    resizeMode="contain"
                 />
                 <View >
                 <View style={styles.content1}><Text style={styles.name}>{this.props.beer.name}</Text></View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     name: {
         textAlign: 'center',
         fontWeight: 'bold',
-        paddingTop: 60,
+        paddingTop: 40,
         fontSize: 30,
     },
     details: {
@@ -61,6 +61,8 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 5,
+        backgroundColor: '#BA4A73',
+        zIndex: 5000,
     },
     content: {
         height: 150,

@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 
 //----native elements
-import { StyleSheet, Text, View, ScrollView, Button, Modal } from 'react-native';
+import { StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    Button,
+    Modal
+} from 'react-native';
 
 //---components
 import BeerModal from './BeerModal';
@@ -27,6 +33,8 @@ export default class Beers extends Component {
         };
     };
 
+    //----Events
+
     toggleModal(modalVisible, currentBeer) {
         this.setState({
             modalVisible,
@@ -40,9 +48,13 @@ export default class Beers extends Component {
         });
     };
 
+    //----LifeCycle
+
     componentWillMount(){
         this.makeBeerRequest();
     };
+
+    //----API Call
 
     makeBeerRequest = () => {
         axios
@@ -58,7 +70,7 @@ export default class Beers extends Component {
         return(
             <View style={styles.container}>
                 <Text>Press a beer for more information:</Text>
-                    <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
+                    <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
                         <BeerModal beer={this.state.currentBeer}/>
                         <Button title="close" color="black" onPress={() => {this.toggleModal(false)}} />
                         <Text></Text>
@@ -68,10 +80,10 @@ export default class Beers extends Component {
                         <Button title="close" color="black" onPress={() => {this.toggleInfo(false)}} />
                         <Text></Text>
                     </Modal>
-                <ScrollView>
+                <ScrollView style={styles.scroll}>
                     {beers.map(beer => <Button
                         onPress={() => {this.toggleModal(true, beer)}}
-                        color="white"
+                        color="#817753"
                         key={beer.id}
                         style={styles.beers}
                         title={beer.name} />)
@@ -80,7 +92,6 @@ export default class Beers extends Component {
                 <Button
                     onPress={() => {this.toggleInfo(true)}}
                     color="#663333"
-                    backgroundColor="white"
                     style={styles.beers}
                     title='Learn More About Brewdog'
                 />
@@ -96,13 +107,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#817753',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 15,
+        paddingBottom: 0,
+    },
+    scroll: {
+        backgroundColor: '#817753',
     },
     beers: {
+        backgroundColor: '#817753',
         height: 30,
         overflow: 'scroll',
         marginTop: 2,
         fontSize: 10,
         lineHeight: 10,
+        borderRadius: 0,
     },
 });
