@@ -6,7 +6,8 @@ import { StyleSheet,
     View,
     ScrollView,
     Button,
-    Modal
+    Modal,
+    TouchableHighlight,
 } from 'react-native';
 
 //---components
@@ -81,13 +82,11 @@ export default class Beers extends Component {
                         <Text></Text>
                     </Modal>
                 <ScrollView style={styles.scroll}>
-                    {beers.map(beer => <Button
-                        onPress={() => {this.toggleModal(true, beer)}}
-                        color="#817753"
-                        key={beer.id}
-                        style={styles.beers}
-                        title={beer.name} />)
-                    }
+                    {beers.map(beer =>
+                        <TouchableHighlight onPress={() => {this.toggleModal(true, beer)}} key={beer.id}>
+                            <Text style={styles.beers}>{beer.name}</Text>
+                        </TouchableHighlight>
+                    )}
                 </ScrollView>
                 <Button
                     onPress={() => {this.toggleInfo(true)}}
@@ -117,9 +116,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#817753',
         height: 30,
         overflow: 'scroll',
-        marginTop: 2,
-        fontSize: 10,
-        lineHeight: 10,
-        borderRadius: 0,
+        fontSize: 15,
+        color: 'white',
+        textAlign: 'center',
     },
 });
