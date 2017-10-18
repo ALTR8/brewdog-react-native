@@ -10,7 +10,7 @@ Created using the BrewDog API, an open source API associated with, but not creat
 ## Installation
 
 - cd into file
-$ npm install
+- $ npm install
 
 ### `npm start`
 
