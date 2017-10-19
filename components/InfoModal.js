@@ -29,7 +29,6 @@ export default class InfoModal extends Component {
         return(
             <View style={styles.modal}>
                 <Image
-                    style={styles.image}
                     source={ require('../images/beers.png')}
                     resizeMode="center"
                 />
@@ -80,17 +79,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 250,
     },
-    content1: {
-        padding: 15,
-        zIndex: 5000,
-    },
     name: {
         textAlign: 'center',
         fontWeight: 'bold',
-        paddingTop: 60,
         fontSize: 30,
-    },
-    content: {
-        paddingTop: 20,
     },
 });

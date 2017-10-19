@@ -73,20 +73,24 @@ export default class Beers extends Component {
                 <Text style={styles.bold}>Press a beer for more information:</Text>
                     <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
                             <Text></Text>
-                            <Text></Text>
-                            <Button
-                                style={styles.close}
-                                onPress={() => {this.toggleModal(false)}}
-                                title="close"
-                                color='black'
-                            />
+                            <View style={{width: 80, height: 35, marginTop: 20, paddingBottom: 15, backgroundColor: '#F0F0F0'}}>
+                                <Button
+                                    onPress={() => {this.toggleModal(false)}}
+                                    title="close"
+                                    color='black'
+                                />
+                            </View>
                         <BeerModal beer={this.state.currentBeer}/>
                         <Text></Text>
                     </Modal>
                     <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
-                        <TouchableHighlight onPress={() => {this.toggleInfo(false)}}>
-                            <Text style={styles.close}>close</Text>
-                        </TouchableHighlight>
+                    <View style={{width: 80, height: 35, marginTop: 40, paddingBottom: 5, backgroundColor: '#F0F0F0'}}>
+                        <Button
+                            onPress={() => {this.toggleInfo(false)}}
+                            title="close"
+                            color='black'
+                        />
+                    </View>
                         <InfoModal />
                         <Text></Text>
                     </Modal>
@@ -97,12 +101,14 @@ export default class Beers extends Component {
                         </TouchableHighlight>
                     )}
                 </ScrollView>
+                <View style={{width: 400, height: 55}}>
                 <Button
                     onPress={() => {this.toggleInfo(true)}}
                     color="#663333"
                     style={styles.beers}
                     title='Learn More'
                 />
+                </View>
             </View>
         );
     };
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
     },
     beers: {
         backgroundColor: '#817753',
-        height: 30,
+        height: 35,
         overflow: 'scroll',
         fontSize: 18,
         color: 'white',
