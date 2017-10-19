@@ -32,7 +32,7 @@ export default class InfoModal extends Component {
                     source={ require('../images/beers.png')}
                     resizeMode="center"
                 />
-                <Text>{'\n'}</Text>
+
                 <Image
                     style={styles.image}
                     source={ require('../images/ohiobrewery.png')}

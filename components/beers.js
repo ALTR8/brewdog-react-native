@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     },
     beers: {
         backgroundColor: '#817753',
-        height: 35,
+        height: 45,
         overflow: 'scroll',
         fontSize: 18,
         color: 'white',
