@@ -71,19 +71,19 @@ export default class Beers extends Component {
         return(
             <View style={styles.container}>
                 <Text style={styles.bold}>Press a beer for more information:</Text>
-                    <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
-                            <Text></Text>
-                            <View style={{width: 80, height: 35, marginTop: 20, paddingBottom: 15, backgroundColor: '#F0F0F0'}}>
-                                <Button
-                                    onPress={() => {this.toggleModal(false)}}
-                                    title="close"
-                                    color='black'
-                                />
-                            </View>
-                        <BeerModal beer={this.state.currentBeer}/>
-                        <Text></Text>
-                    </Modal>
-                    <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
+                <Modal animationType={'slide'} transparent={false} visible={this.state.modalVisible} onRequestClose={() => {console.log("modal closed")}}>
+                    <Text></Text>
+                    <View style={{width: 80, height: 35, marginTop: 20, paddingBottom: 15, backgroundColor: '#F0F0F0'}}>
+                        <Button
+                            onPress={() => {this.toggleModal(false)}}
+                            title="close"
+                            color='black'
+                        />
+                    </View>
+                    <BeerModal beer={this.state.currentBeer}/>
+                    <Text></Text>
+                </Modal>
+                <Modal style={styles.modal} animationType={'slide'} transparent={false} visible={this.state.infoVisible} onRequestClose={() => {console.log("modal closed")}}>
                     <View style={{width: 80, height: 35, marginTop: 40, paddingBottom: 5, backgroundColor: '#F0F0F0'}}>
                         <Button
                             onPress={() => {this.toggleInfo(false)}}
@@ -91,9 +91,9 @@ export default class Beers extends Component {
                             color='black'
                         />
                     </View>
-                        <InfoModal />
-                        <Text></Text>
-                    </Modal>
+                    <InfoModal />
+                    <Text></Text>
+                </Modal>
                 <ScrollView>
                     {beers.map(beer =>
                         <TouchableHighlight onPress={() => {this.toggleModal(true, beer)}} key={beer.id}>
@@ -102,12 +102,12 @@ export default class Beers extends Component {
                     )}
                 </ScrollView>
                 <View style={{width: 400, height: 55}}>
-                <Button
-                    onPress={() => {this.toggleInfo(true)}}
-                    color="#663333"
-                    style={styles.beers}
-                    title='Learn More'
-                />
+                    <Button
+                        onPress={() => {this.toggleInfo(true)}}
+                        color="#663333"
+                        style={styles.beers}
+                        title='Learn More'
+                    />
                 </View>
             </View>
         );

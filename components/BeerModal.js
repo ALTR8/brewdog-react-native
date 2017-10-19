@@ -31,12 +31,14 @@ export default class BeerModal extends Component {
                     resizeMode="cover"
                 />
                 <View>
-                <View style={styles.content1}><Text style={styles.name}>{this.props.beer.name}{'\n'}</Text></View>
+                    <View style={styles.content1}>
+                        <Text style={styles.name}>{this.props.beer.name}{'\n'}</Text>
+                    </View>
                     <ScrollView style={styles.content}>
-                            <Text style={styles.details}>{this.props.beer.abv}% ABV</Text>
-                            <Text style={styles.details}>{this.props.beer.ibu} IBUs{"\n"}</Text>
-                            <Text style={styles.details}>{this.props.beer.description}{"\n"}</Text>
-                            <Text style={styles.details}>Food Pairings: {this.props.beer.food_pairing[0]}, {this.props.beer.food_pairing[1]}</Text>
+                        <Text style={styles.details}>{this.props.beer.abv}% ABV</Text>
+                        <Text style={styles.details}>{this.props.beer.ibu} IBUs{"\n"}</Text>
+                        <Text style={styles.details}>{this.props.beer.description}{"\n"}</Text>
+                        <Text style={styles.details}>Food Pairings: {this.props.beer.food_pairing[0]}, {this.props.beer.food_pairing[1]}</Text>
                     </ScrollView>
                 </View>
             </View>

@@ -19,9 +19,9 @@ export default class App extends Component {
                 <Image style={styles.image} resizeMode="center" source={ require('./images/logo.png')} />
                 <Beers />
            </View>
-        )
-    }
-}
+        );
+    };
+};
 
 //----Style
 
